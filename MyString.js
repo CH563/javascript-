@@ -2,6 +2,7 @@ function MyString (str) {
   var list = []
   for (var i in str) {
     list[i] = str[i]
+    this[i] = str[i]
   }
   this.list = list
   this.length = list.length
@@ -60,7 +61,7 @@ function MyString (str) {
 
 var a = new MyString('hello')
 console.log(a.length) // 5
-console.log(a[0]) // 待解决
+console.log(a[1]) // e
 console.log(a.toString()) // hello
 console.log(a.valueOf()) // hello
 console.log(a.charAt('1')) // e
