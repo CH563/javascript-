@@ -1,4 +1,4 @@
-# JAVASCRIPT-DIARY
+﻿# JAVASCRIPT-DIARY
 javascript日常练习
 
 ## 实现在一个跟内建函数String()一样的，MyString()方法
@@ -17,3 +17,6 @@ console.log(a.slice(0, -1)) // hell
 console.log(a.split('e')) // ['h','llo']
 console.log(a.reverse()) // olleh
 ```
+
+
+arry
