@@ -15,7 +15,7 @@ var Person = function () {
 
     // 定义了 say 方法
     // 同 eye,say 是一个实例方法，new 出来的对象都有 say 的方法
-    this.say = fucntion(){
+    this.say = function(){
         console.log('hi i am ' + this.name)
     }
 }
@@ -32,3 +32,21 @@ Person.prototype.eat = function () {
 Person.staticMethod = function () {
     console.log('this is static method')
 }
+
+// 当调用 new 时
+var zhangsan = new Person()
+
+// 实际上是
+var zhangsan = {}
+zhangsan.__proto__ = Person.prototype
+Person.call(zhangsan)
+
+/*
+1、声明了一个zhangsan的空对象
+2、将 Person 的prototype 赋值给 zhangsan 的proto 属性
+   关于对象的 prototype 和 proto 概念如下:
+   prototype是函数的一个属性（每个函数都有一个prototype属性），这个属性是一个指针，指向一个对象。它是显示修改对象的原型的属性。
+   proto是一个对象拥有的内置属性（每个对象都有一个proto属性），是JS内部使用寻找原型链的属性。
+   这就是为什么 zhangsan 可以调用到Person原型(Person.prototype)方法的原因
+3、调用Person函数,并且把 zhangsan 当成是this传入函数中,这就是为什么 zhangsan 可以调用 Person 函数定义的this.属性或this.方法的原因
+*/
